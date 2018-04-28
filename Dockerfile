@@ -7,7 +7,7 @@ MAINTAINER Luke @ DeepIT <support@deepinthought.io> version=8.11.1 architecture=
 ENV NODE_VERSION=8.11.1
 ENV NODE_CODENAME=carbon
 ENV NPM_VERSION=3.10.10
-ENV PROCESSOR_COUNT=$(cat /proc/cpuinfo | grep 'processor' | wc -l)
+ENV PROCESSOR_COUNT=`$(cat /proc/cpuinfo | grep 'processor' | wc -l)`
 
 # TODO: Pull the latest file from [https://nodejs.org/download/release/latest-$NODE_CODENAME/](https://nodejs.org/download/release/latest-$NODE_CODENAME/)
 
