@@ -26,7 +26,7 @@ RUN apk --update add git python gcc g++ make gnupg \
   gpg --receive-keys B9AE9905FFD7803F25714661B63B535A4C206CA9 \
   gpg --receive-keys 56730D5401028683275BD23C23EFEFE93C4CFFFE \
   gpg --receive-keys 77984A986EBC2AA786BC0F66B01FBB92821C587A \
-  && wget https://nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz \
+  && wget https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz \
   # TODO: Implement a curl or wget to retrieve the SHASUMS256.txt and verify signature prior to installation.  Will assist with continous builds with $NODE_CODENAME.
   && echo "86678028f13b26ceed08efc4b838921ca1bf514c0b7e8151bfec8ba15c5e66ad node-v$NODE_VERSION.tar.gz"  | sha256sum -c - \
   && tar -zxvf node-v$NODE_VERSION.tar.gz \
