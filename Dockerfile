@@ -9,6 +9,7 @@ ENV NODE_VERSION=8.11.1
 ENV NODE_CODENAME=carbon
 ENV NPM_VERSION=3.10.10
 ENV PROCESSOR_COUNT $(cat /proc/cpuinfo | grep 'processor' | wc -l)
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # FIX: Remove cache and tmp files.  *Possibly MOVE FOR LATER OCCURENCES*
 RUN rm -rf /var/cache/apk/* && \
