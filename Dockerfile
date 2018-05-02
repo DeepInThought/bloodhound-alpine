@@ -9,6 +9,7 @@ ENV NODE_VERSION=8.11.1
 ENV NODE_CODENAME=carbon
 ENV NPM_VERSION=3.10.10
 ENV PROCESSOR_COUNT $(cat /proc/cpuinfo | grep 'processor' | wc -l)
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # FIX: Remove cache and tmp files.  *Possibly MOVE FOR LATER OCCURENCES*
 RUN rm -rf /var/cache/apk/* && \
@@ -28,7 +29,7 @@ RUN apk --update add git python gcc g++ make gnupg \
   gpg --receive-keys 77984A986EBC2AA786BC0F66B01FBB92821C587A \
   && wget https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz \
   # TODO: Implement a curl or wget to retrieve the SHASUMS256.txt and verify signature prior to installation.  Will assist with continous builds with $NODE_CODENAME.
-  && echo "86678028f13b26ceed08efc4b838921ca1bf514c0b7e8151bfec8ba15c5e66ad node-v$NODE_VERSION.tar.gz"  | sha256sum -c - \
+  && echo "86678028f13b26ceed08efc4b838921ca1bf514c0b7e8151bfec8ba15c5e66ad  node-v$NODE_VERSION.tar.gz"  | sha256sum -c - \
   && tar -zxvf node-v$NODE_VERSION.tar.gz \
   && ./configure --prefix=/srv \
   # If you are experiencing issues with builds, then change to "&& make -j1 && make install \" without quotes.
